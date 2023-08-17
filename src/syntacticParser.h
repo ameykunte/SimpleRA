@@ -4,6 +4,7 @@ using namespace std;
 
 enum QueryType
 {
+
     CLEAR,
     CROSS,
     DISTINCT,
@@ -51,6 +52,7 @@ class ParsedQuery
 
 public:
     QueryType queryType = UNDETERMINED;
+    string sourceFileName = "";
 
     string clearRelationName = "";
 
