@@ -13,6 +13,8 @@ bool syntacticParse()
 
     if (possibleQueryType == "CLEAR")
         return syntacticParseCLEAR();
+    else if ( possibleQueryType== "SOURCE")
+        return syntacticParseSOURCE();
     else if (possibleQueryType == "INDEX")
         return syntacticParseINDEX();
     else if (possibleQueryType == "LIST")
