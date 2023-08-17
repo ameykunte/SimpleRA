@@ -1,5 +1,4 @@
 #include"global.h"
-
 void executeSOURCE() {
 
     std::ifstream queryFile("data/" + parsedQuery.sourceFileName + ".ra");
@@ -9,18 +8,17 @@ void executeSOURCE() {
     std::vector<std::string> queries;
     std::istringstream iss(fileContent);
     std::string query;
-    while (std::getline(iss, query, ';')) {
+    while (std::getline(iss, query, '\n')) {
         queries.push_back(query);
     }
 
+
     for (const std::string &query : queries) {
         if (!query.empty()) {
-
-            executeCommand(query);
+            executeCommand(query); 
         }
     }
 }
-
 
 void executeCommand(){
 
