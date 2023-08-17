@@ -1,24 +1,4 @@
 #include"global.h"
-void executeSOURCE() {
-
-    std::ifstream queryFile("data/" + parsedQuery.sourceFileName + ".ra");
-    std::string fileContent((std::istreambuf_iterator<char>(queryFile)),
-                            std::istreambuf_iterator<char>());
-
-    std::vector<std::string> queries;
-    std::istringstream iss(fileContent);
-    std::string query;
-    while (std::getline(iss, query, '\n')) {
-        queries.push_back(query);
-    }
-
-
-    for (const std::string &query : queries) {
-        if (!query.empty()) {
-            executeCommand(query); 
-        }
-    }
-}
 
 void executeCommand(){
 
@@ -36,7 +16,7 @@ void executeCommand(){
         case RENAME: executeRENAME(); break;
         case SELECTION: executeSELECTION(); break;
         case SORT: executeSORT(); break;
-        case SOURCE: executeSOURCE(); break;
+        case SOURCE: executeSOURCE(parsedQuery.sourceFileName); break;
         default: cout<<"PARSING ERROR"<<endl;
     }
 
